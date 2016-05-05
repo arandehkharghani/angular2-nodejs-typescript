@@ -1,0 +1,13 @@
+hi
+{{userName === undefined}}
+  <div class="inner" [ngSwitch]="userName === undefined">
+    <template [ngSwitchWhen]="true">
+      <chat-login (login)="onLogin($event)"></chat-login>
+    </template>
+    <template [ngSwitchWhen]="false">
+      <div class="messages">
+        <chat-message *ngFor="#m of messages" [message]="m"></chat-message>
+      </div>
+      <chat-input (message)="onMessage($event)"></chat-input>
+    </template>
+  </div>
